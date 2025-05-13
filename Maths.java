@@ -6,14 +6,13 @@
  * - Power
  */
 
+ import utils.PrintUtils;
+
 public class Maths {
     public static void main(String args[]) {
-        System.out.println("This is a maths class");
-        System.out.println("Result: " + duplicate(5));
-        System.out.println("Square Root: " + squareRoot(9));
-        // System.out.println(quadraticFormula(2, 3, 4));
-        // System.out.println(factorial(5));
-        // System.out.println(power(2, 3));
+        PrintUtils.print("This is a maths class");
+        quadraticFormula(1, 2, 3);
+        PrintUtils.printLine();
     }
 
     public static int duplicate(int n) {
@@ -26,5 +25,18 @@ public class Maths {
             sqrt++;
         }
         return sqrt;
+    }
+
+    public static void quadraticFormula(int a, int b, int c) {
+        /**
+         * Formula:
+         * x = (-b +- sqrt(b^2 - 4ac)) / 2a
+         */
+
+         int denominator = 2 * a;
+         int numeratorHalf = 1 * (-1 * b);
+         int numerator2ndHalf = squareRoot(b * b - 4 * a * c);
+         int x = (numeratorHalf + numerator2ndHalf) / denominator;
+         PrintUtils.printFormatted("x = %d", x);
     }
 }
